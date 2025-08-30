@@ -1,0 +1,127 @@
+<h1>
+  Job application #<%= @the_job_application.id %> details
+</h1>
+
+<article>
+  <div>
+    <a href="/job_applications">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_job_application/<%= @the_job_application.id %>">
+      Delete job application
+    </a>
+  </div>
+  <dl>
+    <dt>
+      User
+    </dt>
+    <dd>
+      <%= @the_job_application.user_id %>
+    </dd>
+
+    <dt>
+      Application date
+    </dt>
+    <dd>
+      <%= @the_job_application.application_date %>
+    </dd>
+
+    <dt>
+      Status
+    </dt>
+    <dd>
+      <%= @the_job_application.status %>
+    </dd>
+
+    <dt>
+      Description
+    </dt>
+    <dd>
+      <%= @the_job_application.description_id %>
+    </dd>
+
+    <dt>
+      Interview date
+    </dt>
+    <dd>
+      <%= @the_job_application.interview_date %>
+    </dd>
+
+    <dt>
+      Created at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_job_application.created_at) %> ago
+    </dd>
+
+    <dt>
+      Updated at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_job_application.updated_at) %> ago
+    </dd>
+  </dl>
+</article>
+
+<hr>
+
+
+<article>
+  <header>
+    <h2>
+      Edit job application
+    </h2>
+  </header>
+
+  <form action="/modify_job_application/<%= @the_job_application.id %>"  method="post" >
+    <div>
+      <label for="user_id_box">
+        User
+      </label>
+
+      <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_job_application.user_id %>">
+    </div>
+
+    <div>
+      <label for="application_date_box">
+        Application date
+      </label>
+
+      <input type="date" id="application_date_box" name="query_application_date" value="<%= @the_job_application.application_date %>">
+    </div>
+
+    <div>
+      <label for="status_box">
+        Status
+      </label>
+
+      <input type="text" id="status_box" name="query_status" value="<%= @the_job_application.status %>">
+    </div>
+
+    <div>
+      <label for="description_id_box">
+        Description
+      </label>
+
+      <input type="text" id="description_id_box" name="query_description_id" value="<%= @the_job_application.description_id %>">
+    </div>
+
+    <div>
+      <label for="interview_date_box">
+        Interview date
+      </label>
+
+      <input type="datetime-local" id="interview_date_box" name="query_interview_date"
+         value="<%= @the_job_application.interview_date %>">
+    </div>
+
+    <button type="submit">
+      Update job application
+    </button>
+  </form>
+</article>
+
+<hr>
