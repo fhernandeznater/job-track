@@ -1,0 +1,111 @@
+<h1>
+  Job description #<%= @the_job_description.id %> details
+</h1>
+
+<article>
+  <div>
+    <a href="/job_descriptions">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_job_description/<%= @the_job_description.id %>">
+      Delete job description
+    </a>
+  </div>
+  <dl>
+    <dt>
+      Start date
+    </dt>
+    <dd>
+      <%= @the_job_description.start_date %>
+    </dd>
+
+    <dt>
+      Job title
+    </dt>
+    <dd>
+      <%= @the_job_description.job_title %>
+    </dd>
+
+    <dt>
+      Company
+    </dt>
+    <dd>
+      <%= @the_job_description.company_id %>
+    </dd>
+
+    <dt>
+      Category
+    </dt>
+    <dd>
+      <%= @the_job_description.category %>
+    </dd>
+
+    <dt>
+      Created at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_job_description.created_at) %> ago
+    </dd>
+
+    <dt>
+      Updated at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_job_description.updated_at) %> ago
+    </dd>
+  </dl>
+</article>
+
+<hr>
+
+
+<article>
+  <header>
+    <h2>
+      Edit job description
+    </h2>
+  </header>
+
+  <form action="/modify_job_description/<%= @the_job_description.id %>"  method="post" >
+    <div>
+      <label for="start_date_box">
+        Start date
+      </label>
+
+      <input type="date" id="start_date_box" name="query_start_date" value="<%= @the_job_description.start_date %>">
+    </div>
+
+    <div>
+      <label for="job_title_box">
+        Job title
+      </label>
+
+      <input type="text" id="job_title_box" name="query_job_title" value="<%= @the_job_description.job_title %>">
+    </div>
+
+    <div>
+      <label for="company_id_box">
+        Company
+      </label>
+
+      <input type="text" id="company_id_box" name="query_company_id" value="<%= @the_job_description.company_id %>">
+    </div>
+
+    <div>
+      <label for="category_box">
+        Category
+      </label>
+
+      <input type="text" id="category_box" name="query_category" value="<%= @the_job_description.category %>">
+    </div>
+
+    <button type="submit">
+      Update job description
+    </button>
+  </form>
+</article>
+
+<hr>

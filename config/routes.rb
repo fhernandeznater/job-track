@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Job description resource:
+
+  # CREATE
+  post("/insert_job_description", { :controller => "job_descriptions", :action => "create" })
+
+  # READ
+  get("/job_descriptions", { :controller => "job_descriptions", :action => "index" })
+
+  get("/job_descriptions/:path_id", { :controller => "job_descriptions", :action => "show" })
+
+  # UPDATE
+
+  post("/modify_job_description/:path_id", { :controller => "job_descriptions", :action => "update" })
+
+  # DELETE
+  get("/delete_job_description/:path_id", { :controller => "job_descriptions", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Job application resource:
 
   # CREATE

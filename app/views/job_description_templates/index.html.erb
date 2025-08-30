@@ -1,0 +1,67 @@
+<h1>
+  List of all job descriptions
+</h1>
+
+<hr>
+
+<article>
+  <header>
+    <h2>
+      Add a new job description
+    </h2>
+  </header>
+
+  <form action="/insert_job_description" method="post">
+    <div>
+      <label for="start_date_box">
+        Start date
+      </label>
+
+      <input type="date" id="start_date_box" name="query_start_date">
+    </div>
+
+    <div>
+      <label for="job_title_box">
+        Job title
+      </label>
+
+      <input type="text" id="job_title_box" name="query_job_title">
+    </div>
+
+    <div>
+      <label for="company_id_box">
+        Company
+      </label>
+
+      <input type="text" id="company_id_box" name="query_company_id">
+    </div>
+
+    <div>
+      <label for="category_box">
+        Category
+      </label>
+
+      <input type="text" id="category_box" name="query_category">
+    </div>
+
+    <button type="submit">
+      Create job description
+    </button>
+  </form>
+</article>
+
+<hr>
+
+<article>
+  <ul>
+    <% @list_of_job_descriptions.each do |a_job_description| %>
+      <li>
+        <a href="/job_descriptions/<%= a_job_description.id %>">
+          Job description #<%= a_job_description.id %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</article>
+
+<hr>
