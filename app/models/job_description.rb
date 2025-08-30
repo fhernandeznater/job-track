@@ -11,4 +11,6 @@
 #  company_id :integer
 #
 class JobDescription < ApplicationRecord
+  has_many  :job_applications, class_name: "JobApplication", foreign_key: "description_id", dependent: :destroy
+  belongs_to :company, required: true, class_name: "Company", foreign_key: "company_id", counter_cache: true
 end

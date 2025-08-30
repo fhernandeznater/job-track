@@ -12,4 +12,6 @@
 #  user_id          :integer
 #
 class JobApplication < ApplicationRecord
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true
+  belongs_to :description, required: true, class_name: "JobDescription", foreign_key: "description_id"
 end
