@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Company resource:
+
+  # CREATE
+  post("/insert_company", { :controller => "companies", :action => "create" })
+
+  # READ
+  get("/companies", { :controller => "companies", :action => "index" })
+
+  get("/companies/:path_id", { :controller => "companies", :action => "show" })
+
+  # UPDATE
+
+  post("/modify_company/:path_id", { :controller => "companies", :action => "update" })
+
+  # DELETE
+  get("/delete_company/:path_id", { :controller => "companies", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Job description resource:
 
   # CREATE

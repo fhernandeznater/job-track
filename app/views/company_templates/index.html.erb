@@ -1,0 +1,51 @@
+<h1>
+  List of all companies
+</h1>
+
+<hr>
+
+<article>
+  <header>
+    <h2>
+      Add a new company
+    </h2>
+  </header>
+
+  <form action="/insert_company" method="post">
+    <div>
+      <label for="name_box">
+        Name
+      </label>
+
+      <input type="text" id="name_box" name="query_name">
+    </div>
+
+    <div>
+      <label for="job_descriptions_count_box">
+        Job descriptions count
+      </label>
+
+      <input type="text" id="job_descriptions_count_box" name="query_job_descriptions_count">
+    </div>
+
+    <button type="submit">
+      Create company
+    </button>
+  </form>
+</article>
+
+<hr>
+
+<article>
+  <ul>
+    <% @list_of_companies.each do |a_company| %>
+      <li>
+        <a href="/companies/<%= a_company.id %>">
+          Company #<%= a_company.id %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</article>
+
+<hr>
