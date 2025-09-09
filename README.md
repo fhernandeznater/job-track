@@ -1,5 +1,5 @@
-# Job Application Tracker Specification
-This app is a helpful companion to submitting job applications. Using Job Application Tracker helps users stay organized as they submit large amounts of job applications, something becoming more common in the current job market
+# JobTrack Specification
+This app is a helpful companion to submitting job applications. Using JobTrack helps users stay organized as they submit large amounts of job applications, something becoming more common in the current job market
 Pain Points
 ## Keeping Track of Job Applications is difficult
 People applying for jobs in the current market may have to apply to dozens or hundreds of jobs before landing a position. When dealing with this large of a volume of job applications, it can be difficult to keep track of all the jobs you’ve applied to, whether it’s to stay on a schedule of sending a particular number of applications a week/month, or just knowing when the application was sent to accurately gauge when to follow up.
@@ -9,7 +9,7 @@ People applying for jobs in the current market may have to apply to dozens or hu
 By far, the first result that appears when doing a web search for “How do I keep track of my job applications?’ is using a spreadsheet. Sure, that might be a widespread solution, but it still requires a good deal of setup.
 ## Solution
 ### Overview
-Job Application Tracker lets users input information into forms instead of using a spreadsheet to keep track of job applications. Users can then view an interactive list of their job applications and sort to their preferences.
+JobTrack lets users input information into forms instead of using a spreadsheet to keep track of job applications. Users can then view an interactive list of their job applications and sort to their preferences.
 ### Key Features
 -	Quick Data Entry: Job Application Tracker allows for fast, simple data entry of job applications
 -	Easy-to-view lists: Users can take a look at all of the jobs applications they've entered or just some, with sorting available by date, application status, and job type
