@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # Routes for the Company resource:
 
+
+
+  root "pages#root"
+
   # CREATE
   post("/insert_company", { :controller => "companies", :action => "create" })
 
