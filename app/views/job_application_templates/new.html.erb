@@ -4,39 +4,71 @@
 
 
   <!--Date-->
-  <div>
+  <div class="mb-3">
+    <label for="application_date_box" class="form-label">When did you apply?</label>
 
+    <input type="date" id="application_date_box" name="job_application[application_date]" value="<%= Date.today %>" class="form-control">
   </div>
 
 
-  <!--Job Title (in Job Descriptions)-->
-  <div>
+  <!--Job Title-->
+  <div class="mb-3">
+    <label for="job_title_box" class="form-label">Job Title</label>
 
+    <input type="text" id="job_title_box" name="job_application[job_title]" class="form-control">
   </div>
 
 
   <!--Company (name in Company model, not in job application)-->
-  <div>
+  <div class="mb-3">
+    <label for="company_name_box" class="form-label">Company</label>
 
+    <input type="text" id="company_name_box" name="job_application[company_name]" class="form-control">
   </div>
 
 
   <!--What type of job is this? (category in job description) optional-->
-  <div>
+  <div class="mb-3">
+    <label for="job_title_box" class="form-label">Job Title</label>
 
+    <input type="text" id="job_title_box" name="job_application[job_title]" class="form-control">
   </div>
 
   <!--What's the start date? (start date in the job description) optional-->
-  <div>
+  <div class="mb-3">
+    <label for="category_box" class="form-label">What kind of job is this? (e.g. Full-time, Part-time)</label>
+
+    <input type="text" id="category_box" name="job_application[category]" class="form-control">
 
   </div>
 
-  <!--Application status (defaulting to pending)-->
+  <!--Start Date-->
+  <div class="mb-3">
+    <label for="start_date_box" class="form-label">Start Date (if known)</label>
 
-  <div>
+    <input type="date" id="start_date_box" name="job_application[start_date]" class="form-control">
 
   </div>
+
+
+  <!--Application status (defaulting to Pending)-->
+
+  <div class="mb-3">
+    <label for="status_box" class="form-label">Status</label>
+
+    <input type="text" id="status_box" name="job_application[status]" value="Pending" class="form-control">
+  </div>
+
+  <!--Interview Date-->
+
+  <div class="mb-3">
+    <label for="interview_date_box" class="form-label">Interview Date (optional)</label>
+
+    <input type="datetime-local" id="interview_date_box" name="job_application[interview_date]" class="form-control">
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Log Application</button>
+
 
 </form>
-
-<!--A submit button at the bottom of the page-->
