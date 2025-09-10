@@ -44,6 +44,8 @@ root "pages#root"
 
   # Routes for the Job application resource:
 
+  get("/job_applications/new", { :controller => "job_applications", :action=> "new" })
+
   # CREATE
   post("/insert_job_application", { :controller => "job_applications", :action => "create" })
 
