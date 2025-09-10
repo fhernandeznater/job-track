@@ -1,4 +1,63 @@
 class JobApplicationsController < ApplicationController
+  
+  def new
+    @the_job_application = JobApplication.new
+    authorize(@the_job_application)
+  end
+
+  def create
+    form_data = params.fetch("job_application")
+
+
+    # Company
+    company_name = form_data.fetch("company_name")
+    company = Company.where({ :name => company_name}).at(0)
+
+    unless company
+      company = Company.new
+      company.name = company_name
+      company.save
+    end
+
+    # Description
+    job_title = form_data.fetch("job_title")
+    category = form_data.fetch("category")
+    start_date = form_data.fetch("start_date")
+    matching_descriptions = JobDescription.where({
+      :company_id => company.id,
+      :job_title => job_title,
+      :category => category,
+      :start_date => start_date
+    })
+    description = matching_descriptions.at(0)
+
+    unless description
+      description = JobDescription.new
+      desscription.company_id = company_id
+      description.job_title = job_title
+      description.category = category
+      description.start_date = start_date
+      description.save
+    end
+
+    @the_job_application = JobApplication.new
+    @the_job_application.user_id = current_user.id
+    @the_job_application.description_id = description.id
+    @the_job_application.application_date = form_data.fetch("application_date")
+    @the_job_application.status = form_data.fetch("status")
+    @the_job_application.interview_date = form_data.fetch("interview_date", nil)
+
+    authorize(@the_job_application)
+
+    if @the_job_application.save
+      redirect_to(root, { :notice=> "Job application was successfully created." })
+    else
+      render({ :template => "job_application_templates/new" })
+    end
+
+    return
+  end
+  
   def index
     matching_job_applications = JobApplication.all
 
