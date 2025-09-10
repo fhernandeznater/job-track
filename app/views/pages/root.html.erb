@@ -2,11 +2,11 @@
 
 <button type="button" class="btn btn-primary btn-lg">New Application</button>
 
-<%# if Current.user %>
-<!--  <p>You are signed in as <%#= Current.user.email_address %>-->
-<%# else %>
-<!--  <p>You are not signed in</p>-->
-<%# end %>
+<% if current_user %>
+  <p>You are signed in as <%= Current.user.email_address %></p>
+<% else %>
+  <p>You are not signed in</p>
+<% end %>
 
 
 
@@ -14,9 +14,11 @@
 <!--List them in order here-->
 
 <ul class="list-group">
-  <li class="list-group-item">Application 1</li>
-  <li class="list-group-item">Application 2</li>
-  <li class="list-group-item">Application 3</li>
-  <li class="list-group-item">Application 4</li>
-  <li class="list-group-item">Applciation 5</li>
+  <% current_user.job_applications.each do |application| %>
+    <li class="list-group-item">
+      <%= application.description.job_title %>
+      — applied on
+      <%= application.application_date.strftime("%b %-d, %Y") %>
+    </li>
+  <% end %>
 </ul>
