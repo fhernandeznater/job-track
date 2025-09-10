@@ -1,9 +1,11 @@
 <h1>JobTrack</h1>
 
-<button type="button" class="btn btn-primary btn-lg">New Application</button>
+<%= link_to "New Application", "/job_applications/new", class: "btn btn-primary btn-lg" %>
+
+<!--<button type="button" class="btn btn-primary btn-lg">New Application</button>-->
 
 <% if current_user %>
-  <p>You are signed in as <%= Current.user.email_address %></p>
+  <p>You are signed in as <%= current_user.email_address %></p>
 <% else %>
   <p>You are not signed in</p>
 <% end %>
@@ -12,13 +14,14 @@
 
 <!--For each application that a user has-->
 <!--List them in order here-->
-
-<ul class="list-group">
-  <% current_user.job_applications.each do |application| %>
-    <li class="list-group-item">
-      <%= application.description.job_title %>
-      — applied on
-      <%= application.application_date.strftime("%b %-d, %Y") %>
-    </li>
-  <% end %>
-</ul>
+<% if current_user %>
+  <ul class="list-group">
+    <% current_user.job_applications.each do |application| %>
+      <li class="list-group-item">
+        <%= application.description.job_title %>
+        — applied on
+        <%= application.application_date.strftime("%b %-d, %Y") %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
