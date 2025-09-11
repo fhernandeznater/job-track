@@ -1,8 +1,11 @@
 class JobApplicationsController < ApplicationController
+
+  # before_action :authenticate_user!
   
   def new
     @the_job_application = JobApplication.new
     authorize(@the_job_application)
+    render({ template: "job_application_templates/new"})
   end
 
   def create
@@ -33,7 +36,7 @@ class JobApplicationsController < ApplicationController
 
     unless description
       description = JobDescription.new
-      desscription.company_id = company_id
+      description.company_id = company.id
       description.job_title = job_title
       description.category = category
       description.start_date = start_date
@@ -50,7 +53,7 @@ class JobApplicationsController < ApplicationController
     authorize(@the_job_application)
 
     if @the_job_application.save
-      redirect_to(root, { :notice=> "Job application was successfully created." })
+      redirect_to(root_path, { :notice=> "Job application was successfully created." })
     else
       render({ :template => "job_application_templates/new" })
     end

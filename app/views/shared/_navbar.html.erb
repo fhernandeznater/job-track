@@ -14,36 +14,28 @@
               Big Test Vibes
             <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to root_path, class: "nav-link" do %>
-              <i class="fas fa-compass fa-fw"></i>
+<!--          <li class="nav-item">-->
+            <%#= link_to root_path, class: "nav-link" do %>
+<!--              <i class="fas fa-compass fa-fw"></i>-->
                 <!--Change this later PLEASE-->
-                Is there where you'd put Options? I have no idea
-            <% end %>
-          </li>
+<!--                Is there where you'd put Options? I have no idea-->
+            <%# end %>
+<!--          </li>-->
         <% end %>
       </ul>
 
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to new_job_application, class: "nav-link" do %>
+            <%= link_to job_applications_new_path, class: "nav-link" do %>
               <i class="fas fa-plus-circle"></i>
 
               Add Application
             <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to user_path(current_user.username), class: "nav-link" do %>
-              <i class="fas fa-home fa-fw"></i>
-
-              Your profile
-              <!--Maybe options would go here?-->
-            <% end %>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %>
+              <%= current_user.email %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
