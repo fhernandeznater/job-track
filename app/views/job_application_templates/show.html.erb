@@ -1,11 +1,11 @@
 <div class="container">
   <h1>
-    Job Application #<%= @the_job_application.id %> Details
+    Application Details
   </h1>
 
   <article>
     <div>
-      <a href="/job_applications">
+      <a href="/">
         Go back
       </a>
     </div>
@@ -15,101 +15,80 @@
         Delete Job Application
       </a>
     </div>
-    <dl>
-
-      <dt>
-        Application Date
-      </dt>
-      <dd>
-        <%= @the_job_application.application_date %>
-      </dd>
-
-      <dt>
-        Status
-      </dt>
-      <dd>
-        <%= @the_job_application.status %>
-      </dd>
-
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_job_application.description_id %>
-      </dd>
-
-      <dt>
-        Interview date
-      </dt>
-      <dd>
-        <%= @the_job_application.interview_date %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_job_application.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_job_application.updated_at) %> ago
-      </dd>
-    </dl>
+    
   </article>
 
   <hr>
 
+  <form action="/modify_job_application/<%= @the_job_application.id %>" method="post">
 
-  <article>
-    <header>
-      <h2>
-        Edit job application
-      </h2>
-    </header>
 
-    <form action="/modify_job_application/<%= @the_job_application.id %>"  method="post" >
-<!--      <div>
-        <label for="user_id_box">
-          User
-        </label>
+  <!--Date-->
+  <div class="mb-3">
+    <label for="application_date_box" class="form-label">When did you apply?</label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%#= @the_job_application.user_id %>">
-      </div>
--->
-      <div>
-        <label for="application_date_box">
-          Application date
-        </label>
+    <input type="date" id="application_date_box" name="job_application[application_date]" value="<%= @the_job_application.application_date %>" class="form-control">
+  </div>
 
-        <input type="date" id="application_date_box" name="query_application_date" value="<%= @the_job_application.application_date %>">
-      </div>
 
-      <div>
-        <label for="status_box">
-          Status
-        </label>
+  <!--Job Title-->
+  <div class="mb-3">
+    <label for="job_title_box" class="form-label">Job Title</label>
 
-        <input type="text" id="status_box" name="query_status" value="<%= @the_job_application.status %>">
-      </div>
+    <input type="text" id="job_title_box" name="job_application[job_title]" value="<%= @the_job_application.description.job_title %>" class="form-control">
+  </div>
 
-      <div>
-        <label for="interview_date_box">
-          Interview date
-        </label>
 
-        <input type="datetime-local" id="interview_date_box" name="query_interview_date"
-          value="<%= @the_job_application.interview_date %>">
-      </div>
+  <!--Company (name in Company model, not in job application)-->
+  <div class="mb-3">
+    <label for="company_name_box" class="form-label">Company</label>
 
-      <button type="submit", class= "btn btn-primary mb-3">
-        Update job application
-      </button>
-    </form>
-  </article>
+    <input type="text" id="company_name_box" name="job_application[company_name]" value="<%= @the_job_application.description.company.name %>"class="form-control">
+  </div>
 
-  <hr>
+  <!--What kind of job is this>-->
+  <div class="mb-3">
+    <label for="category_box" class="form-label">What kind of job is this? (e.g. Full-time, Part-time)</label>
+
+    <input type="text" id="category_box" name="job_application[category]" value="<%= @the_job_application.description.category %>"class="form-control">
+
+  </div>
+
+  <!--Start Date-->
+  <div class="mb-3">
+    <label for="start_date_box" class="form-label">Start Date (if known)</label>
+
+    <input type="date" id="start_date_box" name="job_application[start_date]" value="<%= @the_job_application.description.start_date %>"class="form-control">
+
+  </div>
+
+
+  <!--Application status (defaulting to Pending)-->
+
+  <div class="mb-3">
+    <label for="status_box" class="form-label">Status</label>
+
+    <input type="text" id="status_box" name="job_application[status]" value="<%= @the_job_application.status %>" class="form-control">
+  </div>
+
+  <!--Interview Date and Time-->
+
+  <div class="mb-3">
+    <label for="interview_date_box" class="form-label">Interview Date and Time (optional)</label>
+
+    <input type="datetime-local" id="interview_date_box" name="job_application[interview_date]" value="<%= @the_job_application.interview_date %>" class="form-control">
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update Application</button>
+
+
+</form>
+
+
+
+
+
+
+
 </div>
