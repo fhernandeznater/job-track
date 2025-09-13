@@ -77,6 +77,8 @@ gem "simple_form"
 gem "strip_attributes"
 gem "validate_url"
 
+gem "rails_db", "~> 2.5.0"
+
 group :development do
   gem "annotaterb"
   gem "better_errors"
@@ -85,7 +87,6 @@ group :development do
   gem "draft_generators", github: "firstdraft/draft_generators", branch: "bp-summer-2025-update"
   gem "haikunator"
   gem "pry-rails"
-  gem "rails_db", "~> 2.5.0"
   gem "rails-erd"
   gem "rufo"
 end
