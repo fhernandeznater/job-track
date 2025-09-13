@@ -24,7 +24,7 @@
         </thead>
         <tbody>
           <% current_user.job_applications.each do |application| %>
-            <tr>
+            <tr class="clickable-row" data-href="/job_applications/<%= application.id %>" style="cursor: pointer;">
               <th scope="row">
                 <%= application.application_date.strftime("%m/%d/%y") %>
               </th>
@@ -38,3 +38,15 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document
+      .querySelectorAll(".clickable-row")
+      .forEach(function(row) {
+        row.addEventListener("click", function() {
+          window.location = this.dataset.href;
+        });
+      });
+  });
+</script>
