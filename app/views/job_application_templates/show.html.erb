@@ -76,7 +76,7 @@
   <div class="mb-3">
     <label for="interview_date_box" class="form-label">Interview Date and Time (optional)</label>
 
-    <input type="datetime-local" id="interview_date_box" name="job_application[interview_date]" value="<%= @the_job_application.interview_date %>" class="form-control">
+    <input type="datetime-local" id="interview_date_box" name="job_application[interview_date]" value="<%= @the_job_application.interview_date&.strftime('%Y-%m-%dT%H:%M') %>" class="form-control">
 
   </div>
 
