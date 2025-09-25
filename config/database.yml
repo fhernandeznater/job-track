@@ -18,6 +18,7 @@
 #   # For details on connection pooling, see Rails configuration guide
 #   # https://guides.rubyonrails.org/configuring.html#database-pooling
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+# NOTE: Added this to be able to test it locally on codespaces
 default: &default
   adapter: postgresql
   encoding: unicode
