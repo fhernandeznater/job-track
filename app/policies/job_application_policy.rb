@@ -1,4 +1,5 @@
 class JobApplicationPolicy < ApplicationPolicy
+  # NOTE: Great job, love to see Pundit being implemented 
   attr_reader :user, :job_application
 
   def initialize(user, job_application)

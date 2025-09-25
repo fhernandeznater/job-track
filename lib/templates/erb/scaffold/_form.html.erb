@@ -1,4 +1,5 @@
 <%# frozen_string_literal: true %>
+<%# NOTE: Not sure what is this file and folder doing in `lib` %>
 <%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
   <%%= f.error_notification %>
   <%%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

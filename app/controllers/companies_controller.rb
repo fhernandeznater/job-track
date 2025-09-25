@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  # NOTE: Encourage to use strong parameters for security and move the business logic to the model, since it's good practice to keep the controller skinny and clean
   def index
     matching_companies = Company.all
 
