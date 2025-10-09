@@ -1,4 +1,6 @@
 class JobDescriptionsController < ApplicationController
+  # NOTE: Would like to see you refactor the controllers to use strong parameters and keep the controller clean
+  # NOTE: It seems like you have generated the MVC with the `draft:resource`, but we would like to see you use `scaffold`
   def index
     matching_job_descriptions = JobDescription.all
 

@@ -4,6 +4,7 @@ class JobApplicationsController < ApplicationController
   
   def new
     @the_job_application = JobApplication.new
+    # NOTE: Great job using Pundit
     authorize(@the_job_application)
     render({ template: "job_application_templates/new"})
   end
@@ -79,6 +80,7 @@ class JobApplicationsController < ApplicationController
     render({ :template => "job_application_templates/show" })
   end
 
+  # NOTE: If there are commented code, we would like to see it deleted or add a future note for yourself on what are you planning to do with the code
   # def create
   #   the_job_application = JobApplication.new
   #   the_job_application.user_id = params.fetch("query_user_id")

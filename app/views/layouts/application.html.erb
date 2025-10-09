@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%# NOTE: Nice to see you using customize title for different views %>
     <title><%= content_for(:title) || "JobTrack" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,6 +18,7 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <%# NOTE: This may not be necessary since you already have `bootstrap-utilites.css` file, and would be nice to have this in a CDN(Content Delivery Network) partials %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
@@ -25,9 +27,10 @@
   </head>
 
   <body>
-
+    <%# NOTE: This should go in the <head> tag, not in the <body> %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
+    <%# NOTE: Good job on implementing navbar as a partial %>
     <%= render "shared/navbar" %>
 
     <%= yield %>
